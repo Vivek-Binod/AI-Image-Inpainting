@@ -16,3 +16,10 @@ matplotlib==3.10.9
 # Optional: LPIPS metric in scripts/evaluate.py (skipped automatically if missing;
 # downloads AlexNet weights on first use).
 # lpips
+
+# Web backend (backend/) and tests
+fastapi==0.143.0
+uvicorn[standard]==0.54.0
+python-multipart==0.0.32
+pytest==9.1.1
+httpx==0.28.1
