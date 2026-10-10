@@ -1,0 +1,4 @@
+Model unet | params 4,307,555 | device cuda | AMP True | train 30000 | val 1000
+epoch   1 | train 1.4592 | val 1.3185 | val hole PSNR 13.63 dB | 34.5s | *best*
+epoch   2 | train 1.3219 | val 1.2837 | val hole PSNR 13.86 dB | 30.1s | *best*
+Training summary: {'status': 'completed', 'epochs_completed': 2, 'best_val_total': 1.283707571029663, 'parameters': 4307555, 'device': 'cuda', 'gpu': 'NVIDIA GeForce RTX 3050 Laptop GPU'}

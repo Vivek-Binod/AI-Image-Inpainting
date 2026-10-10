@@ -1,0 +1,46 @@
+# Default experiment configuration (shared by both models).
+seed: 42
+
+data:
+  root: data/raw              # split files list paths relative to this directory
+  splits_dir: data/splits
+  image_size: 128             # images are centre-cropped and resized to image_size x image_size
+  max_train_images: null      # null = use the whole training split
+  max_val_images: 1000        # validation subset used for per-epoch model selection
+
+mask:                         # 1 = missing pixel, 0 = known pixel
+  mask_type: mixed            # rect | free_form | mixed
+  rect_min_frac: 0.15
+  rect_max_frac: 0.5
+  max_rects: 3
+  stroke_max_vertices: 8
+  stroke_max_width_frac: 0.12
+  stroke_max_len_frac: 0.3
+  max_strokes: 4
+
+model:
+  name: unet                  # unet | gated_unet
+  base_channels: 32
+
+loss:
+  w_hole: 6.0                 # weighting follows Liu et al. (2018)
+  w_valid: 1.0
+  w_perceptual: 0.05
+  pretrained_vgg: true
+
+train:
+  epochs: 30
+  batch_size: 32
+  lr: 0.0002
+  betas: [0.9, 0.999]
+  cosine_schedule: true
+  amp: true                   # mixed precision (CUDA only)
+  grad_clip: 1.0
+  num_workers: 8
+  early_stopping_patience: 6  # 0 disables
+  sample_every: 1
+  max_steps_per_epoch: null
+  max_val_steps: null
+
+eval:
+  test_mask_seed_offset: 2000000  # test mask for item i uses seed + offset + i

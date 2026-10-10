@@ -1,0 +1,15 @@
+# Tiny configuration for the smoke test (correctness only, NOT a real experiment).
+base: default.yaml
+data:
+  image_size: 64
+  max_train_images: 64
+  max_val_images: 16
+model:
+  base_channels: 8
+loss:
+  w_perceptual: 0.0   # avoid downloading VGG weights for the smoke test
+train:
+  epochs: 2
+  batch_size: 8
+  num_workers: 0
+  early_stopping_patience: 0

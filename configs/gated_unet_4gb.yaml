@@ -1,0 +1,8 @@
+# Gated-convolution U-Net for a 4 GiB GPU (RTX 3050 Laptop). Same settings as unet_4gb.yaml.
+# Measured peak at 128 px with AMP + VGG: batch 32 -> 4.1 GiB reserved (exceeds the GPU;
+# spills into shared memory under WSL and runs ~4x slower), batch 16 -> 2.3 GiB reserved.
+base: default.yaml
+model:
+  name: gated_unet
+train:
+  batch_size: 16

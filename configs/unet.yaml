@@ -1,0 +1,4 @@
+# U-Net with ordinary convolutions.
+base: default.yaml
+model:
+  name: unet

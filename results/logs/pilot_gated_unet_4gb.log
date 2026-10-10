@@ -1,0 +1,3 @@
+Model gated_unet | params 8,615,011 | device cuda | AMP True | train 30000 | val 1000
+epoch   1 | train 1.5575 | val 1.3023 | val hole PSNR 13.89 dB | 40.6s | *best*
+Training summary: {'status': 'completed', 'epochs_completed': 1, 'best_val_total': 1.302254867553711, 'parameters': 8615011, 'device': 'cuda', 'gpu': 'NVIDIA GeForce RTX 3050 Laptop GPU'}

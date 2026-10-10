@@ -1,0 +1,44 @@
+Evaluating ['unet', 'gated_unet', 'mean_fill', 'telea'] on 3500 test images (128px) on cuda
+  evaluated 640/3500 images
+  evaluated 1280/3500 images
+  evaluated 1920/3500 images
+  evaluated 2560/3500 images
+  evaluated 3200/3500 images
+  evaluated 3500/3500 images
+| Method | N | PSNR (dB) ↑ | SSIM ↑ | MSE ↓ | Hole PSNR (dB) ↑ | Hole MSE ↓ | Raw PSNR (dB) ↑ | Raw SSIM ↑ |
+|---|---|---|---|---|---|---|---|---|
+| Gated-Conv U-Net | 3500 | 27.72 ± 6.25 | 0.9059 ± 0.0645 | 0.00332 ± 0.00363 | 19.16 ± 4.71 | 0.01836 ± 0.01546 | 27.46 ± 5.75 | 0.9022 ± 0.0646 |
+| Mean-colour fill | 3500 | 21.68 ± 4.30 | 0.8399 ± 0.0842 | 0.00986 ± 0.00792 | 13.13 ± 2.89 | 0.05874 ± 0.03471 | 21.68 ± 4.30 | 0.8399 ± 0.0842 |
+| OpenCV Telea | 3500 | 25.98 ± 5.92 | 0.8913 ± 0.0688 | 0.00461 ± 0.00464 | 17.43 ± 4.31 | 0.02562 ± 0.01945 | 25.98 ± 5.92 | 0.8913 ± 0.0688 |
+| U-Net (conv) | 3500 | 27.69 ± 6.21 | 0.9057 ± 0.0644 | 0.00333 ± 0.00364 | 19.14 ± 4.65 | 0.01838 ± 0.01543 | 27.42 ± 5.69 | 0.9012 ± 0.0645 |
+{
+  "split": "test",
+  "num_images": 3500,
+  "image_size": 128,
+  "mask_seed_base": 2000042,
+  "mask_config": {
+    "mask_type": "mixed",
+    "rect_min_frac": 0.15,
+    "rect_max_frac": 0.5,
+    "max_rects": 3,
+    "stroke_max_vertices": 8,
+    "stroke_max_width_frac": 0.12,
+    "stroke_max_len_frac": 0.3,
+    "max_strokes": 4
+  },
+  "checkpoints": {
+    "unet": {
+      "path": "checkpoints/unet_4gb/best.pt",
+      "epoch": 30,
+      "best_val": 0.5974403467178345,
+      "saved_at": "2026-10-09T19:08:51"
+    },
+    "gated_unet": {
+      "path": "checkpoints/gated_unet_4gb/best.pt",
+      "epoch": 30,
+      "best_val": 0.5969186601638794,
+      "saved_at": "2026-10-10T07:42:28"
+    }
+  },
+  "device": "cuda"
+}

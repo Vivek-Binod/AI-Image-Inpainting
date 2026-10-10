@@ -1,0 +1,11 @@
+# U-Net (ordinary convolutions) for a 4 GiB GPU (RTX 3050 Laptop).
+# Same experiment as unet.yaml (128 px, width 32, AMP, VGG perceptual loss, 30 epochs);
+# only the batch size is halved. Measured peak at 128 px with AMP + VGG:
+#   batch 32 -> 3.4 GiB reserved (at the limit of the ~3.4 GiB free under WSL)
+#   batch 16 -> 1.8 GiB reserved
+# Both models use batch 16 so the U-Net / Gated U-Net comparison stays like-for-like.
+base: default.yaml
+model:
+  name: unet
+train:
+  batch_size: 16

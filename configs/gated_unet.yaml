@@ -1,0 +1,4 @@
+# U-Net with gated convolutions (Yu et al., 2019).
+base: default.yaml
+model:
+  name: gated_unet

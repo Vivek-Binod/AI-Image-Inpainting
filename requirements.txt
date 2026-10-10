@@ -1,0 +1,18 @@
+# Python 3.10. Install into the project venv:
+#   .venv/bin/python -m pip install -r requirements.txt
+# PyTorch/Torchvision come from the official CUDA 12.4 wheel index (needs an NVIDIA
+# driver supporting CUDA >= 12.4; the wheels bundle their own CUDA/cuDNN libraries).
+--extra-index-url https://download.pytorch.org/whl/cu124
+
+torch==2.6.0+cu124
+torchvision==0.21.0+cu124
+numpy==2.2.6
+opencv-python-headless==5.0.0.93
+pillow==12.3.0
+PyYAML==6.0.3
+scikit-image==0.25.2
+matplotlib==3.10.9
+
+# Optional: LPIPS metric in scripts/evaluate.py (skipped automatically if missing;
+# downloads AlexNet weights on first use).
+# lpips

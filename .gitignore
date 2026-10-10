@@ -1,0 +1,48 @@
+# Python environment and cache
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Dataset archives and raw data
+data/raw/
+data/processed/
+
+# Model checkpoints and training artifacts
+checkpoints/**/*.pt
+checkpoints/**/*.pth
+checkpoints/**/*.ckpt
+checkpoints/**/last.pt
+checkpoints/**/best.pt
+
+# Temporary and partial downloads
+*.partial
+*.tmp
+
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Model checkpoints and generated samples
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+
+# Incomplete downloads
+*.partial
+*.tmp
+
+# Runtime process IDs
+*.pid
+
+# Python and test caches
+__pycache__/
+.pytest_cache/

@@ -1,0 +1,34 @@
+/root/AI-Image-Inpainting/src/training/trainer.py:111: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = torch.cuda.amp.GradScaler(enabled=self.use_amp)
+Model unet | params 4,307,555 | device cuda | AMP True | train 30000 | val 1000
+epoch   1 | train 1.1724 | val 0.9389 | val hole PSNR 15.45 dB | 368.5s | *best*
+epoch   2 | train 0.8763 | val 0.7929 | val hole PSNR 15.99 dB | 372.8s | *best*
+epoch   3 | train 0.7945 | val 0.7511 | val hole PSNR 16.39 dB | 373.5s | *best*
+epoch   4 | train 0.7503 | val 0.7292 | val hole PSNR 16.35 dB | 374.0s | *best*
+epoch   5 | train 0.7266 | val 0.7063 | val hole PSNR 16.56 dB | 372.8s | *best*
+epoch   6 | train 0.7081 | val 0.6993 | val hole PSNR 16.57 dB | 372.7s | *best*
+epoch   7 | train 0.6910 | val 0.6897 | val hole PSNR 16.74 dB | 364.0s | *best*
+epoch   8 | train 0.6802 | val 0.6682 | val hole PSNR 16.75 dB | 346.5s | *best*
+epoch   9 | train 0.6681 | val 0.6478 | val hole PSNR 16.87 dB | 343.0s | *best*
+epoch  10 | train 0.6608 | val 0.6613 | val hole PSNR 16.67 dB | 345.6s
+epoch  11 | train 0.6544 | val 0.6533 | val hole PSNR 16.87 dB | 347.5s
+epoch  12 | train 0.6494 | val 0.6393 | val hole PSNR 16.86 dB | 347.6s | *best*
+epoch  13 | train 0.6442 | val 0.6425 | val hole PSNR 17.04 dB | 347.2s
+epoch  14 | train 0.6393 | val 0.6297 | val hole PSNR 16.97 dB | 346.0s | *best*
+epoch  15 | train 0.6343 | val 0.6252 | val hole PSNR 16.97 dB | 345.7s | *best*
+epoch  16 | train 0.6295 | val 0.6305 | val hole PSNR 16.88 dB | 347.0s
+epoch  17 | train 0.6276 | val 0.6228 | val hole PSNR 16.99 dB | 346.6s | *best*
+epoch  18 | train 0.6240 | val 0.6172 | val hole PSNR 17.01 dB | 346.2s | *best*
+epoch  19 | train 0.6210 | val 0.6138 | val hole PSNR 17.07 dB | 346.1s | *best*
+epoch  20 | train 0.6189 | val 0.6120 | val hole PSNR 17.13 dB | 346.7s | *best*
+epoch  21 | train 0.6172 | val 0.6110 | val hole PSNR 17.09 dB | 346.7s | *best*
+epoch  22 | train 0.6124 | val 0.6104 | val hole PSNR 17.13 dB | 347.0s | *best*
+epoch  23 | train 0.6117 | val 0.6047 | val hole PSNR 17.13 dB | 346.4s | *best*
+epoch  24 | train 0.6082 | val 0.6037 | val hole PSNR 17.11 dB | 346.7s | *best*
+epoch  25 | train 0.6075 | val 0.6013 | val hole PSNR 17.12 dB | 346.1s | *best*
+epoch  26 | train 0.6050 | val 0.6006 | val hole PSNR 17.12 dB | 345.8s | *best*
+epoch  27 | train 0.6032 | val 0.5994 | val hole PSNR 17.13 dB | 346.0s | *best*
+epoch  28 | train 0.6029 | val 0.5986 | val hole PSNR 17.16 dB | 346.3s | *best*
+epoch  29 | train 0.6019 | val 0.5977 | val hole PSNR 17.17 dB | 346.3s | *best*
+epoch  30 | train 0.6014 | val 0.5974 | val hole PSNR 17.14 dB | 346.3s | *best*
+Training summary: {'status': 'completed', 'epochs_completed': 30, 'best_val_total': 0.5974403467178345, 'parameters': 4307555, 'device': 'cuda', 'gpu': 'NVIDIA GeForce RTX 3050 Laptop GPU'}

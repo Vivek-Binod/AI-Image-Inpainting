@@ -1,0 +1,19 @@
+{
+  "image_dir": "data/raw/val_256",
+  "data_root_for_splits": "data/raw",
+  "candidates": 36500,
+  "valid": 36500,
+  "split_seed": 42,
+  "splits": {
+    "train": 30000,
+    "val": 3000,
+    "test": 3500
+  },
+  "sampled_sizes": {
+    "256x256": 2028
+  },
+  "sampled_modes": {
+    "RGB": 2022,
+    "L": 6
+  }
+}
