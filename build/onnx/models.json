@@ -1,0 +1,50 @@
+{
+  "device": "browser",
+  "cuda_device": null,
+  "default_model": "gated_unet",
+  "default_work_size": 128,
+  "max_work_size": 256,
+  "max_upload_mb": 25.0,
+  "max_pixels": 40000000,
+  "mask_convention": "white (1) = missing region to reconstruct, black (0) = known region",
+  "models": [
+    {
+      "name": "unet",
+      "label": "U-Net",
+      "available": true,
+      "checkpoint": "models/unet.onnx (from checkpoints/unet_4gb/best.pt)",
+      "error": null,
+      "epoch": 30,
+      "training_resolution": 128,
+      "base_channels": 32,
+      "parameters": 4307555,
+      "best_val_loss": 0.5974403467178345,
+      "saved_at": "2026-10-09T19:08:51",
+      "test_metrics": {
+        "n_images": 3500,
+        "psnr": 27.69305899522782,
+        "ssim": 0.9057267095178133,
+        "hole_psnr": 19.1391012376591
+      }
+    },
+    {
+      "name": "gated_unet",
+      "label": "Gated U-Net",
+      "available": true,
+      "checkpoint": "models/gated_unet.onnx (from checkpoints/gated_unet_4gb/best.pt)",
+      "error": null,
+      "epoch": 30,
+      "training_resolution": 128,
+      "base_channels": 32,
+      "parameters": 8615011,
+      "best_val_loss": 0.5969186601638794,
+      "saved_at": "2026-10-10T07:42:28",
+      "test_metrics": {
+        "n_images": 3500,
+        "psnr": 27.715405096588157,
+        "ssim": 0.9059127611573609,
+        "hole_psnr": 19.16144733901944
+      }
+    }
+  ]
+}

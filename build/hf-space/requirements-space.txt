@@ -1,0 +1,9 @@
+torch==2.6.0+cpu
+torchvision==0.21.0+cpu
+numpy==2.2.6
+pillow==12.3.0
+PyYAML==6.0.3
+opencv-python-headless==5.0.0.93
+fastapi==0.143.0
+uvicorn==0.54.0
+python-multipart==0.0.32
