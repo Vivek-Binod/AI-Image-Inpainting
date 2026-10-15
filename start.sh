@@ -12,7 +12,14 @@ cd "$(dirname "$0")"
 
 PORT="${PORT:-8000}"
 HOST="${HOST:-127.0.0.1}"
-PY=".venv/bin/python"
+PY="${PYTHON_BIN:-${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/python}}"
+if [ -z "$PY" ] || [ ! -x "$PY" ]; then
+  if [ -x ".venv/bin/python" ]; then
+    PY=".venv/bin/python"
+  else
+    PY="$(command -v python3 || command -v python || echo .venv/bin/python)"
+  fi
+fi
 
 # Prefer a Linux Node.js (the Windows npm on the WSL PATH does not work here).
 for d in "$HOME"/.local/opt/node-v*-linux-x64/bin; do [ -x "$d/node" ] && PATH="$d:$PATH"; done

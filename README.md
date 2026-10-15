@@ -8,7 +8,7 @@ Project status and audit: `PROJECT_AUDIT.md`.
 ## Website (upload → paint → inpaint → download)
 
 ```bash
-cd /root/AI-Image-Inpainting
+cd AI-Image-Inpainting
 ./start.sh                 # builds the frontend if needed, serves site + API
 # open http://localhost:8000   (from Windows too: WSL2 forwards localhost)
 ```
@@ -96,7 +96,7 @@ hole PSNR, LPIPS); results in `results/web_eval/`. LPIPS needs
 ## Setup (WSL Ubuntu, Python 3.10, NVIDIA GPU)
 
 ```bash
-cd /root/AI-Image-Inpainting
+cd AI-Image-Inpainting
 python3 -m venv .venv            # skip if .venv already exists
 .venv/bin/python -m pip install -r requirements.txt
 .venv/bin/python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"

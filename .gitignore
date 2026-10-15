@@ -4,45 +4,45 @@ venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
 
-# Local secrets
+# Local secrets and config
 .env
 .env.*
 !.env.example
+.env.local
 
 # Dataset archives and raw data
 data/raw/
 data/processed/
 
 # Model checkpoints and training artifacts
-checkpoints/**/*.pt
-checkpoints/**/*.pth
-checkpoints/**/*.ckpt
-checkpoints/**/last.pt
-checkpoints/**/best.pt
-
-# Temporary and partial downloads
-*.partial
-*.tmp
-
-# OS/editor files
-.DS_Store
-.vscode/
-.idea/
-
-# Model checkpoints and generated samples
 checkpoints/
 *.pt
 *.pth
 *.ckpt
 
-# Incomplete downloads
+# Temporary and partial downloads
 *.partial
 *.tmp
 
-# Runtime process IDs
+# Runtime process IDs and logs
 *.pid
+*.log
 
-# Python and test caches
-__pycache__/
-.pytest_cache/
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# Frontend build artifacts
+node_modules/
+dist/
+dist-static/
