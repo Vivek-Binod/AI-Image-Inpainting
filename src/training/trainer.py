@@ -108,7 +108,10 @@ class Trainer:
                                                                      eta_min=tc["lr"] * 0.05)
                           if tc.get("cosine_schedule", True) else None)
         self.use_amp = bool(tc.get("amp", True)) and self.device.type == "cuda"
-        self.scaler = torch.cuda.amp.GradScaler(enabled=self.use_amp)
+        if hasattr(torch.amp, "GradScaler"):
+            self.scaler = torch.amp.GradScaler("cuda", enabled=self.use_amp)
+        else:
+            self.scaler = torch.cuda.amp.GradScaler(enabled=self.use_amp)
         self.train_dl, self.val_dl = build_dataloaders(cfg)
 
         self.start_epoch, self.best_val, self.history, self.bad_epochs = 1, math.inf, [], 0
@@ -147,7 +150,7 @@ class Trainer:
         with torch.no_grad():
             m3 = mask.expand_as(image)
             hole_mse = ((pred.float() - image) ** 2 * m3).sum() / m3.sum().clamp_min(1)
-        out = {k: float(v) for k, v in losses.items()}
+        out = {k: float(v.detach()) for k, v in losses.items()}
         out["hole_mse"] = float(hole_mse)
         return out
 

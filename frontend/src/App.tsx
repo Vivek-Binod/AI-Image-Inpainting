@@ -218,7 +218,7 @@ export default function App() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  });
+  }, [loaded, running, redoOp, undo]);
 
   // ----- inference -----
   function clearResult() {

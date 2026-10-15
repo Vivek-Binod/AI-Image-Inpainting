@@ -26,10 +26,27 @@ export default function CompareSlider({ before, after, size, beforeLabel = "Orig
     update(e.clientX);
   };
 
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
+      e.preventDefault();
+      setPos((p) => Math.max(0, p - (e.shiftKey ? 10 : 2)));
+    } else if (e.key === "ArrowRight" || e.key === "ArrowUp") {
+      e.preventDefault();
+      setPos((p) => Math.min(100, p + (e.shiftKey ? 10 : 2)));
+    }
+  };
+
   return (
     <div
       ref={box}
-      className="relative mx-auto touch-none select-none overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-slate-900/10"
+      tabIndex={0}
+      role="slider"
+      aria-label="Comparison slider"
+      aria-valuenow={Math.round(pos)}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      onKeyDown={onKeyDown}
+      className="relative mx-auto touch-none select-none overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-slate-900/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
       style={{
         aspectRatio: `${size.width} / ${size.height}`,
         width: `min(100%, calc(var(--editor-max-h) * ${size.width / size.height}))`,
